@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">GithubIssuesList</string>
+    <string name="okay_text">Okay</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="internet_error">Please check internet connection</string>
+</resources>
