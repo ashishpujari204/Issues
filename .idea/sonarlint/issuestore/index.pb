@@ -1,22 +1,12 @@
 
-‚
-Rapp/src/main/java/com/ashish/githubissueslist/ui/issueslist/IssuesListViewModel.kt,6/d/6d84efc29473dd2172fa579be7dc00777489d883
 p
 @app/src/main/java/com/ashish/githubissueslist/ui/MainActivity.kt,0/a/0a7a85c798a28a63d290cd093102adb1ccbca054
 s
 Capp/src/main/java/com/ashish/githubissueslist/base/BaseViewModel.kt,d/5/d53380882221a23b8dbe1cb0726680c50abe6295
-k
-;app/src/main/java/com/ashish/githubissueslist/model/User.kt,3/0/308ab35f000830cac7fa59dae223934f36bcf99a
 P
  app/src/main/java/rest/Status.kt,e/3/e356cc0ce1c76dbbf74fe0aedee6cff98322fb01
 R
 "app/src/main/java/rest/Resource.kt,9/1/91e37654cd25e42124ecffcc9c8a03976d368710
-V
-&app/src/main/java/rest/ApiInterface.kt,3/d/3df2f09d650884e162747f89b51bd4f16be81848
-b
-2app/src/main/java/rest/RepositoryImplementation.kt,7/5/756146085cfcd156e1bd9d3bf4cf4178b5190dca
-S
-#app/src/main/java/util/Constants.kt,5/e/5ecdb24ac6ea500cc484cb17e92b75d3a306d697
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 p
@@ -46,9 +36,5 @@ A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 R
 "app/src/main/java/di/restModule.kt,f/d/fdc674161332b2b17575bd1722f6f18ce5d4d1a2
-r
-Bapp/src/main/java/com/ashish/githubissueslist/base/BaseActivity.kt,8/7/8777c3a4e3631e4b1fb36dca18547adc216d5c3e
-N
-app/src/main/java/util/Util.kt,3/f/3f4aacb860baab6b79813fe0a61e9d21fd46469b
-r
-Bapp/src/main/java/com/ashish/githubissueslist/model/IssuesModel.kt,3/9/39516a54d7f4a50ee9131d6a66752f25121695db
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164

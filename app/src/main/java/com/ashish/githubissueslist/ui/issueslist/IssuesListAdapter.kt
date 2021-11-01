@@ -10,7 +10,9 @@ import com.ashish.githubissueslist.databinding.IssuesItemViewBinding
 import com.bumptech.glide.Glide
 import db.IssuesClass
 
-class IssuesListAdapter : RecyclerView.Adapter<IssuesListAdapter.ViewHolder>() {
+class IssuesListAdapter(
+    private val onItemClick: (issues: IssuesClass) -> Unit
+) : RecyclerView.Adapter<IssuesListAdapter.ViewHolder>() {
     private var items = ArrayList<IssuesClass>()
 
     fun addItem(items: ArrayList<IssuesClass>) {
@@ -32,10 +34,9 @@ class IssuesListAdapter : RecyclerView.Adapter<IssuesListAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private lateinit var issueObject: IssuesClass
         private val binding = IssuesItemViewBinding.bind(itemView)
+
         fun bind(issue: IssuesClass) = with(itemView) {
-            issueObject = issue
             issue.apply {
                 binding.apply {
                     issueTitleText.text = issueTitle
@@ -45,6 +46,9 @@ class IssuesListAdapter : RecyclerView.Adapter<IssuesListAdapter.ViewHolder>() {
                     }
                     issueCreatedUserDetailText.text = issueCreatedBy
                     issueCreatedDateText.text = issueCreatedDate
+                    setOnClickListener {
+                        onItemClick(issue)
+                    }
                 }
             }
             Glide.with(this)

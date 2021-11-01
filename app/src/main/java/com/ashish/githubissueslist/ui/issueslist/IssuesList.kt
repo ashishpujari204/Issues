@@ -1,11 +1,13 @@
 package com.ashish.githubissueslist.ui.issueslist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.ashish.githubissueslist.R
 import com.ashish.githubissueslist.base.BaseActivity
 import com.ashish.githubissueslist.databinding.ActivityIssuesListBinding
 import com.ashish.githubissueslist.model.IssuesModel
+import com.ashish.githubissueslist.ui.comments.CommentsList
 import com.ashish.githubissueslist.ui.issueslist.IssuesListState.*
 import db.DatabaseHelperImpl
 import db.IssuesClass
@@ -19,8 +21,12 @@ import util.Util
 class IssuesList : BaseActivity<ActivityIssuesListBinding, IssuesListViewModel>() {
 
     override val viewModel: IssuesListViewModel by inject()
-    private val issueAdapter: IssuesListAdapter by inject()
+    private lateinit var issueAdapter: IssuesListAdapter
     private lateinit var dbHelper: DatabaseHelperImpl
+
+    companion object {
+        const val COMMENT_NUMBER = "comment_number"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +37,16 @@ class IssuesList : BaseActivity<ActivityIssuesListBinding, IssuesListViewModel>(
         } else {
             CoroutineScope(Dispatchers.Default).launch {
                 if (dbHelper.getRowCount() > 0) {
-                    issueAdapter.addItem(dbHelper.getIssues() as ArrayList<IssuesClass>)
-                    binding.issuesListView.adapter = issueAdapter
+                    issueAdapter =
+                        IssuesListAdapter { issueItem: IssuesClass -> onItemClickEvent(issueItem) }
+                    issueAdapter.apply {
+                        addItem(dbHelper.getIssues() as ArrayList<IssuesClass>)
+                        binding.issuesListView.adapter = this
+                    }
                 } else {
                     runOnUiThread {
                         run {
-                           showErrorDialog(getString(R.string.internet_error))
+                            showErrorDialog(getString(R.string.internet_error))
                         }
                     }
                 }
@@ -68,7 +78,8 @@ class IssuesList : BaseActivity<ActivityIssuesListBinding, IssuesListViewModel>(
                                     issues.avatarUrl,
                                     issues.issueTitle,
                                     description,
-                                    issues.issueCreatedBy
+                                    issues.issueCreatedBy,
+                                    issues.commentNumber
                                 )
                             }?.let { issueClass ->
                                 dbHelper.insertOrUpdate(
@@ -76,12 +87,22 @@ class IssuesList : BaseActivity<ActivityIssuesListBinding, IssuesListViewModel>(
                                 )
                             }
                         }
-                        issueAdapter.addItem(dbHelper.getIssues() as ArrayList<IssuesClass>)
-                        binding.issuesListView.adapter = issueAdapter
+                        issueAdapter =
+                            IssuesListAdapter { issueItem: IssuesClass -> onItemClickEvent(issueItem) }
+                        issueAdapter.apply {
+                            addItem(dbHelper.getIssues() as ArrayList<IssuesClass>)
+                            binding.issuesListView.adapter = this
+                        }
                     }
                 }
             }
         }
+    }
+
+    private fun onItemClickEvent(issueItem: IssuesClass) {
+        startActivity(Intent(this@IssuesList, CommentsList::class.java).apply {
+            putExtra(COMMENT_NUMBER, issueItem.commentNumber)
+        })
     }
 
     private fun showProgressBar(showProgressBar: Boolean) {

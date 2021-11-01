@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import db.CommentsDBHelper
+import db.CommentsDBHelperImpl
 import db.DatabaseBuilder
 import db.DatabaseHelperImpl
 import java.text.SimpleDateFormat
@@ -46,6 +48,10 @@ class Util {
 
         fun getDBHelper(context: Context): DatabaseHelperImpl {
             return DatabaseHelperImpl(DatabaseBuilder.getInstance(context))
+        }
+
+        fun getCommentsDBHelper(context: Context): CommentsDBHelperImpl {
+            return CommentsDBHelperImpl(DatabaseBuilder.getInstance(context))
         }
     }
 }

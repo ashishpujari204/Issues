@@ -13,12 +13,13 @@ class IssuesPresenter(
 
 fun IssuesModel.toIssuePresentation(): IssuesPresentation =
     IssuesPresentation(
-        avatarUrl =user.avatarUrl,
+        avatarUrl = user.avatarUrl,
         issueId = id,
         issueTitle = "Title : $title",
         issueDescription = "Description : ${body?.replace("(?m)^[ \t]*\r?\n", "")}",
         issueCreatedBy = "Created by: ${user.login}",
-        issueCreatedDate = "Updated at:  ${Util.getFormattedDate(updatedAt)}"
+        issueCreatedDate = "Updated at:  ${Util.getFormattedDate(updatedAt)}",
+        commentNumber = number.toString(),
     )
 
 data class IssuesPresentation(
@@ -27,5 +28,6 @@ data class IssuesPresentation(
     val issueTitle: String,
     val issueDescription: String?,
     val issueCreatedBy: String,
-    val issueCreatedDate: String
+    val issueCreatedDate: String,
+    val commentNumber: String
 )

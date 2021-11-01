@@ -19,5 +19,7 @@ data class IssuesClass(
     @ColumnInfo(name = "issueDescription")
     var issueDescription: String,
     @ColumnInfo(name = "issueCreatedBy")
-    var issueCreatedBy: String
+    var issueCreatedBy: String,
+    @ColumnInfo(name = "commentNumber")
+    var commentNumber: String
 )
