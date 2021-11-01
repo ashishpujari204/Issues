@@ -35,7 +35,6 @@ class IssuesListAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = IssuesItemViewBinding.bind(itemView)
-
         fun bind(issue: IssuesClass) = with(itemView) {
             issue.apply {
                 binding.apply {

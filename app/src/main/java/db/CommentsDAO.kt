@@ -22,9 +22,9 @@ interface CommentsDAO {
         }
     }
 
-    @Query("SELECT count(*) from comments")
-    fun getRowCount(): Int
+    @Query("SELECT count(*) from comments where commentId = :commentId")
+    fun getRowCount(commentId : String): Int
 
-    @Query("SELECT * FROM comments")
-    suspend fun getAllComments(): List<CommentsClass>
+    @Query("SELECT * FROM comments where commentId = :commentId")
+    suspend fun getAllComments(commentId: String): List<CommentsClass>
 }

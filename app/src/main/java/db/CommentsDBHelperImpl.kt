@@ -14,11 +14,11 @@ class CommentsDBHelperImpl(private val appDatabase: AppDatabase) : CommentsDBHel
         commentsClass.commentId.let { appDatabase.issueDAO().delete(it) }
     }
 
-    override suspend fun getRowCount(): Int {
-        return appDatabase.commentsDAO().getRowCount()
+    override suspend fun getRowCount(commentsId : String): Int {
+        return appDatabase.commentsDAO().getRowCount(commentsId)
     }
 
-    override suspend fun getComments(): List<CommentsClass> {
-        return appDatabase.commentsDAO().getAllComments()
+    override suspend fun getComments(commentsId : String): List<CommentsClass> {
+        return appDatabase.commentsDAO().getAllComments(commentsId)
     }
 }

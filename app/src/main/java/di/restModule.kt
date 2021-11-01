@@ -25,7 +25,6 @@ val retrofitModule = module {
 
     fun provideHttpClient(cache: Cache): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder().addInterceptor(interceptor).cache(cache)
-
         return okHttpClientBuilder.build()
     }
 

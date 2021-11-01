@@ -2,14 +2,13 @@ package di
 
 import com.ashish.githubissueslist.ui.comments.CommentsListAdapter
 import com.ashish.githubissueslist.ui.comments.CommentsListViewModel
-import com.ashish.githubissueslist.ui.issueslist.IssuesListAdapter
 import com.ashish.githubissueslist.ui.issueslist.IssuesListViewModel
 import org.koin.dsl.module
 import rest.RepositoryImplementation
 
 val viewModelModule = module {
-    factory { IssuesListViewModel(get()) }
-    factory { CommentsListViewModel(get()) }
+    factory { IssuesListViewModel(get(),get()) }
+    factory { CommentsListViewModel(get(),get()) }
 }
 
 val repoImplementation = module {

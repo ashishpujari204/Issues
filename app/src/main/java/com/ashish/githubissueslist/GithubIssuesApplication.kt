@@ -1,7 +1,6 @@
 package com.ashish.githubissueslist
 
 import android.app.Application
-import com.facebook.stetho.Stetho
 import di.adapterModule
 import di.repoImplementation
 import di.retrofitModule
@@ -14,7 +13,6 @@ import org.koin.core.logger.Level
 class GithubIssuesApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Stetho.initializeWithDefaults(this);
         startKoin {
             androidContext(this@GithubIssuesApplication)
             androidLogger(Level.ERROR)

@@ -17,5 +17,5 @@ data class CommentsModelClass(
     @SerializedName("updated_at")
     val updatedAt: String,
     @SerializedName("user")
-    val user: User?
+    val user: User
 )

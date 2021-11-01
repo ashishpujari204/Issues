@@ -9,7 +9,7 @@ import com.ashish.githubissueslist.databinding.ActivityIssuesListBinding
 import com.ashish.githubissueslist.model.IssuesModel
 import com.ashish.githubissueslist.ui.comments.CommentsList
 import com.ashish.githubissueslist.ui.issueslist.IssuesListState.*
-import db.DatabaseHelperImpl
+import db.IssueDBHelperImpl
 import db.IssuesClass
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +22,7 @@ class IssuesList : BaseActivity<ActivityIssuesListBinding, IssuesListViewModel>(
 
     override val viewModel: IssuesListViewModel by inject()
     private lateinit var issueAdapter: IssuesListAdapter
-    private lateinit var dbHelper: DatabaseHelperImpl
+    private lateinit var dbHelper: IssueDBHelperImpl
 
     companion object {
         const val COMMENT_NUMBER = "comment_number"

@@ -1,6 +1,6 @@
 package db
 
-interface DatabaseHelper {
+interface IssueDBHelper {
 
     suspend fun insertAll(issuesClass: IssuesClass)
 

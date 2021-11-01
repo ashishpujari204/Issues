@@ -1,24 +1,24 @@
 package com.ashish.githubissueslist.ui.comments
 
+import com.ashish.githubissueslist.model.CommentsModelClass
 import db.CommentsClass
 import util.Util
 
-class IssuesPresenter(
-    private val commentsList: ArrayList<CommentsClass>? = null
+class CommentsPresenter(
+    private val commentsList: ArrayList<CommentsModelClass>? = null
 ) {
     fun getCommentList(): List<CommentPresentation>? {
         return commentsList?.map { it.toCommentPresentation() }
     }
 }
-
-fun CommentsClass.toCommentPresentation(): CommentPresentation =
+fun CommentsModelClass.toCommentPresentation(): CommentPresentation =
     CommentPresentation(
-        avatarUrl = avatarUrl,
+        avatarUrl = user.avatarUrl,
         commentId = id,
-        commentTitle = "Title : $commentTitle",
-        commentCreatedBy = "Created by: $commentCreatedBy",
-        commentCreatedDate = "Updated at:  ${Util.getFormattedDate(commentCreatedDate)}",
-        commentNumber = commentId.toString(),
+        commentTitle = "Title : $body",
+        commentCreatedBy = "Created by: ${user.login}",
+        commentCreatedDate = "Updated at:  ${Util.getFormattedDate(updatedAt)}",
+        commentNumber = id.toString(),
     )
 
 data class CommentPresentation(

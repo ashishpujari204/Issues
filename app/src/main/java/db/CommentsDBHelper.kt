@@ -8,7 +8,7 @@ interface CommentsDBHelper {
 
     suspend fun deleteIssuesPresentation(commentsClass: CommentsClass)
 
-    suspend fun getRowCount(): Int
+    suspend fun getRowCount(commentId : String): Int
 
-    suspend fun getComments(): List<CommentsClass>
+    suspend fun getComments(commentId: String): List<CommentsClass>
 }

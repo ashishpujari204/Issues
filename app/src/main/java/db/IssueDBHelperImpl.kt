@@ -1,6 +1,6 @@
 package db
 
-class DatabaseHelperImpl(private val appDatabase: AppDatabase) : DatabaseHelper {
+class IssueDBHelperImpl(private val appDatabase: AppDatabase) : IssueDBHelper {
 
     override suspend fun insertAll(issuesClass: IssuesClass) {
         appDatabase.issueDAO().insertAll(issuesClass)

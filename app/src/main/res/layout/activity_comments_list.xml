@@ -7,12 +7,12 @@
     tools:context=".ui.comments.CommentsList">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/comemntsListView"
+        android:id="@+id/commentsListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/issues_item_view" />
+        tools:listitem="@layout/comment_item_view" />
 
     <ProgressBar
         android:id="@+id/progressBar"
