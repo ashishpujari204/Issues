@@ -1,7 +1,6 @@
 package com.ashish.githubissueslist.ui.comments
 
 import com.ashish.githubissueslist.model.CommentsModelClass
-import db.CommentsClass
 import util.Util
 
 class CommentsPresenter(

@@ -2,7 +2,6 @@ package rest
 
 import com.ashish.githubissueslist.model.CommentsModelClass
 import com.ashish.githubissueslist.model.IssuesModel
-import db.CommentsClass
 import retrofit2.http.GET
 import retrofit2.http.Path
 
