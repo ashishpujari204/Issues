@@ -12,8 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GithubIssuesList"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/Theme.GithubIssuesList">
         <activity
             android:name=".ui.comments.CommentsList"
             android:exported="false" />

@@ -1,5 +1,6 @@
 package com.ashish.githubissueslist
 
+import android.app.Application
 import com.ashish.githubissueslist.ui.issueslist.IssuesListState
 import com.ashish.githubissueslist.ui.issueslist.IssuesListViewModel
 import kotlinx.coroutines.runBlocking
@@ -32,6 +33,7 @@ class IssueTest : KoinTest {
 
     @Test
     fun testIssueListAPI() = runBlocking {
+        GithubIssuesApplication().loadModules()
         issueListViewModel = IssuesListViewModel(repositoryImplementation)
         issueListViewModel.uiState().observeForever {
             when (it) {
