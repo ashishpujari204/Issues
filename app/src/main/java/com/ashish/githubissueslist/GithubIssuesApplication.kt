@@ -7,8 +7,11 @@ import di.retrofitModule
 import di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
+import org.koin.core.context.unloadKoinModules
 import org.koin.core.logger.Level
+import org.koin.core.module.Module
 
 class GithubIssuesApplication : Application() {
     override fun onCreate() {
@@ -25,5 +28,11 @@ class GithubIssuesApplication : Application() {
                 )
             )
         }
+    }
+
+    internal fun loadModules(module: List<Module>, block: () -> Unit) {
+        loadKoinModules(module)
+        block()
+        unloadKoinModules(module)
     }
 }

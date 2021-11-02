@@ -7,8 +7,8 @@ import org.koin.dsl.module
 import rest.RepositoryImplementation
 
 val viewModelModule = module {
-    factory { IssuesListViewModel(get(),get()) }
-    factory { CommentsListViewModel(get(),get()) }
+    factory { IssuesListViewModel(get()) }
+    factory { CommentsListViewModel(get()) }
 }
 
 val repoImplementation = module {

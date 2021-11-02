@@ -33,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_margin"
+            android:maxLength="@integer/description_length"
             android:ellipsize="end"
             android:textColor="@color/black"
             android:textStyle="bold"

@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_comments_list.xml" value="0.35172413793103446" />
         <entry key="app/src/main/res/layout/activity_issues_list.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/comment_item_view.xml" value="0.35172413793103446" />
         <entry key="app/src/main/res/layout/issues_item_view.xml" value="0.234375" />
       </map>
